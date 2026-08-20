@@ -38,9 +38,9 @@ Full method and the numbers that did *not* make this list: [`bench/REPORT.md`](h
 
 ## What it took to build
 
-⏱️ **1.6 hours** from the first command to the published repository, **0.8** of them active<br>
-💬 **265** exchanges with the model<br>
-✍️ **232,734** tokens written by the model, **37,210,066** counting everything sent and re-sent<br>
+⏱️ **1.8 hours** from the first command to the published repository, **1.0** of them active<br>
+💬 **316** exchanges with the model<br>
+✍️ **271,047** tokens written by the model, **53,250,345** counting everything sent and re-sent<br>
 🙋 **0** questions to a human<br>
 🧪 **25** tests
 
@@ -170,12 +170,15 @@ curl localhost:9018/colonies/demo
 
 ## Configuration
 
-| Variable | Default | Notes |
-|---|---|---|
-| `HTTP_PORT` | `9018` | set in `src/main/resources/application.conf` |
+There are no environment variables. The one setting is the port it listens on, written in
+`src/main/resources/application.conf`:
 
-The limit is not configuration. It belongs to a group, is set through
-`PUT /colonies/{id}/cap`, and must be between one and thirty-two.
+```
+akka.javasdk.dev-mode.http-port = 9018
+```
+
+The limit on how many may run at once is not configuration either. It belongs to a group,
+is set through `PUT /colonies/{id}/cap`, and must be between one and thirty-two.
 
 ---
 
